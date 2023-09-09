@@ -28,13 +28,15 @@ export const App = () => {
     }
   };
 
-  const countTotalFeedback = useMemo(() => {
-    return good + bad + neutral;
-  }, [good, neutral, bad]);
+  const countTotalFeedback = useMemo(
+    () => good + bad + neutral,
+    [good, neutral, bad]
+  );
 
-  const countPositiveFeedbackPercentage = useMemo(() => {
-    return Math.round((good / countTotalFeedback) * 100) + '%';
-  }, [good]);
+  const countPositiveFeedbackPercentage = useMemo(
+    () => Math.round((good / countTotalFeedback) * 100) + '%',
+    [good, countTotalFeedback]
+  );
 
   return (
     <>
