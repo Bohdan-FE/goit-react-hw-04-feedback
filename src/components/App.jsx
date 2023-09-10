@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Section } from './SectionFeedback/SectionFeedback';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -28,15 +28,10 @@ export const App = () => {
     }
   };
 
-  const countTotalFeedback = useMemo(
-    () => good + bad + neutral,
-    [good, neutral, bad]
-  );
+  const countTotalFeedback = good + bad + neutral;
 
-  const countPositiveFeedbackPercentage = useMemo(
-    () => Math.round((good / countTotalFeedback) * 100) + '%',
-    [good, countTotalFeedback]
-  );
+  const countPositiveFeedbackPercentage =
+    Math.round((good / countTotalFeedback) * 100) + '%';
 
   return (
     <>
